@@ -1,5 +1,5 @@
 aiodns==2.0.0
-aiohttp==3.6.3
+aiohttp==3.7.1
 async-timeout==3.0.1
 attrs==20.2.0
 cffi==1.14.3
