@@ -1,0 +1,28 @@
+# bot credentials
+login:
+  jid: "james2@example.tld"
+  password: "5up3r 53cr37"
+  nick: "James2"
+
+rooms:
+# "join this room": "redirect to this room"
+  "home@conference.example.tld": "nursing_home@conference.example.tld"
+
+messages:
+  # reply to direct messages
+  # {nick}: bot's nickname
+  direct_msg: "I am {nick} only tasked to redirect people. I am a Bot Ding Ding don't reply."
+
+  # replay to group messages
+  # {user_nick}: joined user's nickname
+  # {new_room}: the configured room the bot points to
+  grp_msg: "{user_nick}, this room is retired please join xmpp:{new_room}?join."
+
+# features -- currently todo and not implemented
+features:
+  # utilize xep 249 direct muc invite
+  direct_invite: false
+
+  # what to do with the user in the retired room
+  #kick_user: false
+  ban_user: false
