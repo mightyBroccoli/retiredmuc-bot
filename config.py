@@ -51,9 +51,7 @@ class Config:
             print(err, file=sys.stderr)
             sys.exit(err.errno)
 
-    def get(
-        self, key: str = None, default: (str, int) = None
-    ) -> (dict, str, int, None):
+    def get(self, key: str = None, default: (str, int) = None) -> (dict, str, int, None):
         """method to retrieve the whole config data, a single value or the optional default value"""
         # if a special key is request, return only that value
         if key is not None:

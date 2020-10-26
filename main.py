@@ -15,7 +15,7 @@ class RetiredMucBot(ClientXMPP):
 
         # passthrough the config obj
         self.config = config
-        
+
         self.rooms = None
         self.nick = nick
         self.messages = self.config.get("messages")
@@ -61,16 +61,16 @@ class RetiredMucBot(ClientXMPP):
         """
 
         # do not process our own messages
-        ourself = self.plugin['xep_0045'].get_our_jid_in_room(msg.get_mucroom())
-        if msg['from'] == ourself:
+        ourself = self.plugin["xep_0045"].get_our_jid_in_room(msg.get_mucroom())
+        if msg["from"] == ourself:
             return
 
         # ever other messages will be answered statically
-        if msg['type'] in ('normal', 'chat'):
+        if msg["type"] in ("normal", "chat"):
             self.send_message(
-                mto=msg['from'],
-                mbody=self.messages['direct_msg'].format(nick=self.nick),
-                mtype=msg['type'],
+                mto=msg["from"],
+                mbody=self.messages["direct_msg"].format(nick=self.nick),
+                mtype=msg["type"],
             )
 
     def notify_user(self, presence):
@@ -89,11 +89,11 @@ class RetiredMucBot(ClientXMPP):
             new_room = self.rooms[presence.get_from().bare]
             self.send_message(
                 mto=presence.get_from().bare,
-                mbody=self.messages['grp_msg'].format(user_nick=user_nick, new_room=new_room),
+                mbody=self.messages["grp_msg"].format(user_nick=user_nick, new_room=new_room),
                 mtype="groupchat",
             )
 
-            if self.functions['direct_invite']:
+            if self.functions["direct_invite"]:
                 jid = presence["muc"].get_jid().bare
                 self.invite_user(jid, new_room)
 
@@ -106,7 +106,7 @@ class RetiredMucBot(ClientXMPP):
         self.plugin["xep_0045"].invite(
             room=jid,
             jid=room,
-            reason='redirection due to retirement',
+            reason="redirection due to retirement",
         )
 
 
@@ -121,11 +121,10 @@ if __name__ == "__main__":
 
     # init the bot and register used slixmpp plugins
     xmpp = RetiredMucBot(login["jid"], login["password"], login["nick"], config)
-    #xmpp.register_plugin("xep_0004")  # Data Forms
     xmpp.register_plugin("xep_0030")  # Service Discovery
     xmpp.register_plugin("xep_0045")  # Multi-User Chat
     xmpp.register_plugin("xep_0085")  # Chat State Notifications
-    xmpp.register_plugin('xep_0092')  # Software Version
+    xmpp.register_plugin("xep_0092")  # Software Version
     xmpp.register_plugin("xep_0199")  # XMPP Ping
     xmpp.register_plugin("xep_0249")  # Direct MUC Invite
 
