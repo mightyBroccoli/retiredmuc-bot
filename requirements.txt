@@ -5,7 +5,7 @@ attrs==20.3.0
 cffi==1.14.3
 chardet==3.0.4
 idna==2.10
-multidict==5.0.0
+multidict==5.0.2
 pyasn1==0.4.8
 pyasn1-modules==0.2.8
 pycares==3.1.1
