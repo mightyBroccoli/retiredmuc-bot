@@ -12,5 +12,5 @@ pycares==3.1.1
 pycparser==2.20
 ruamel.yaml==0.16.12
 ruamel.yaml.clib==0.2.2
-slixmpp==1.5.2
+slixmpp==1.7.0
 yarl==1.6.3
