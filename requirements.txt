@@ -13,4 +13,4 @@ pycparser==2.20
 ruamel.yaml==0.17.10
 ruamel.yaml.clib==0.2.2
 slixmpp==1.7.1
-yarl==1.6.3
+yarl==1.7.2
